@@ -1,8 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import PersonItem from './PersonItem'
+import Boss from './Boss'
 import axios from 'axios'
 
 import './style.css'
+
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+
 class Person extends Component {
   constructor(props) {
     super(props)
@@ -22,9 +26,9 @@ class Person extends Component {
     console.log(axios)
     // ! 一般在dom 挂载结束之后 加载异步数据
     // axios.post(url, ) 
-    axios.post('https://baidu.com')
-      .then(res => { console.log(`获取成功${res}`) })
-      .catch((error) => { console.log(`获取失败${error}`)})
+    // axios.post('https://baidu.com')
+    //   .then(res => { console.log(`获取成功${res}`) })
+    //   .catch((error) => { console.log(`获取失败${error}`)})
   }
   // ? 是否可以更新 需要返回一个 boolean 
   //   todo 返回 true:更新之后继续执行 false: 更新停止 
@@ -52,26 +56,35 @@ class Person extends Component {
           />
           <button className="add-btn" onClick={this.addServe}>增加服务</button>
         </div>
-        <ul ref={(ul)=>{this.ul = ul}}>
-          {
-          //   <PersonItem
-          //    list={this.state.list}
-          //    deleteServe={this.deleteServe}
-          //  />
-            this.state.list.map((e, index) => {
-              return (
-                <PersonItem
-                  key={index}
-                  content={e}
-                  index={index}
-                  list={this.state.list}
-                  deleteServe={this.deleteServe}
-                  name="Jack"
-                />
-              )
-            })
-          } 
+        <ul ref={(ul) => { this.ul = ul }}>
+          <TransitionGroup>
+            {
+              this.state.list.map((e, index) => {
+                return (
+                  <CSSTransition
+                    timeout={2000}
+                    classNames="boss-text"
+                    unmountOnExit
+                    appear={true}
+                    key={index}
+                  >
+                    <PersonItem
+                      key={index}
+                      content={e}
+                      index={index}
+                      list={this.state.list}
+                      deleteServe={this.deleteServe}
+                      name="Jack"
+                    />
+
+                  </CSSTransition>
+                  
+                )
+              })
+            } 
+          </TransitionGroup>
         </ul>
+        <Boss />
       </Fragment>
     )
   }

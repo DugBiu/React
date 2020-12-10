@@ -1,0 +1,54 @@
+.show {
+  /* opacity: 1;
+  transition: all 1.5s ease-in; */
+  animation: show-item 2s ease-in forwards;
+}
+.hidden {
+  /* opacity: 0;
+  transition: all 1s ease-in; */
+  animation: hiden-item 2s  ease-in forwards;
+}
+/* CSS3 动画 keyFrames */
+@keyframes hiden-item {
+  0%{
+    opacity: 1;
+    color: yellow;
+  }
+  50%{
+    opacity: 0.5;
+    color: red
+  }
+  100%{
+    opacity: 1;
+    color: green
+  }
+}
+@keyframes show-item {
+  0%{
+    opacity: 0;
+    color: pink
+  }
+  50%{
+    opacity: 0.5;
+    color: orange
+  }
+  100%{
+    opacity: 0;
+    color: blue;
+  }
+}
+
+/* react-transation-group */
+/* ! boss-text : classNames */
+/* TODO 入场前 */
+.boss-text-enter {opacity: 0;}
+/* TODO 入场到结束之前 */
+.boss-text-enter-active{opacity: 0; transition: opacity 2000ms;}
+/* TODO 入场结束 */
+.boss-text-enter-done{opacity: 1; }
+/* TODO 出场前 */
+.boss-text-exit { opacity: 1;}
+/* TODO 出场到结束之前 */
+.boss-text-exit-active{  opacity: 0; transition: opacity 2000ms; }
+/* TODO 出场结束 */
+.boss-text-exit-done{ opacity: 0;}
