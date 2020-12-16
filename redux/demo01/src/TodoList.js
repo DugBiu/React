@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import store from './store'
-import axios from 'axios'
-import {changeInputAction, addItemAction, deleteItemAction, getListAction } from './store/actionCreators'
+import {
+  changeInputAction, addItemAction, deleteItemAction,
+  getMyListAction} from './store/actionCreators'
 
 import TodoListUi from './TodoListUi'
 
@@ -28,24 +29,12 @@ class TodoList extends Component {
      );
   }
   componentDidMount() {
-    setTimeout(() => {
-      let data = [
-        '任务一',
-        '任务二',
-        '任务三',
-        '任务四'
-      ]
-      let action = getListAction(data)
-      store.dispatch(action)
-      
-    }, 1000)
-    // axios.get(
-    //   'https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList'
-    // ).then((res) => {
-    //   console.log(res)
-    // }).catch((error) => {
-    //   console.log(error)
-    // })
+    // ! thunk 的方式 异步改变 store 中的数据
+    // const action = getTodoList()
+    // store.dispatch(action)
+    // ! saga 的方式 异步改变 store 中的数据
+    const action = getMyListAction()
+    store.dispatch(action)
   }
   changeInputValue(e) {
     const action = changeInputAction(e.target.value)
