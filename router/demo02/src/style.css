@@ -1,0 +1,42 @@
+body{
+  padding: 0px;
+  margin: 0px;
+}
+ul li {
+  list-style: none;
+}
+
+.mainDiv{
+  display: flex;
+  width: 100%;
+}
+.leftNav{
+  width: 16%;
+  background-color: #c0c0c0;
+  color:#333;
+  font-size:24px;
+  height: 1000px;
+  padding: 20px;
+}
+.rightMain{
+  width: 84%;
+  height:1000px;
+  background-color: #fff;
+  font-size:20px;
+
+}
+.topNav {
+  /* width: 100% */
+}
+.topNav ul{
+  display: flex;
+}
+.topNav li {
+  text-align: center;
+  width: 30%;
+  /* flex: 1fr 1fr 1fr; */
+}
+
+.videoContent {
+  text-align: center;
+}
