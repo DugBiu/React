@@ -47,7 +47,7 @@ const AppRouter = () => {
           {
             routerConfig.map((e, index) => {
               return (
-                <Route key={index} path={e.path} exact={item.exact} component={e.component}></Route>
+                <Route key={index} path={e.path} exact={e.exact} component={e.component}></Route>
               )
             })
           }
