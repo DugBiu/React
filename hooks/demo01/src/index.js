@@ -5,6 +5,8 @@ import State from './State'
 import Effect from './Effect'
 import Context from './Context'
 import Reducer from './Reducer'
+import Demo from './Demo'
+import ReducerDemo1 from './ReducerDemo1'
 import './style.css'
 const App = (
   <div>
@@ -13,6 +15,9 @@ const App = (
     <Effect />
     <Context />
     <Reducer />
+    <hr />
+    <Demo />
+    <ReducerDemo1 />
   </div>
   
 )
